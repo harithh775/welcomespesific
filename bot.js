@@ -47,7 +47,7 @@ bot.on("guildMemberAdd", async member => {
             .addText(`${MSG}`, 512, 450)
             .toBuffer();
       }
-      let Channelz = bot.channels.get("725610866791284858");
+      let Channelz = bot.channels.get("707783639781343383");
       Channelz.send(`<a:020:700659081907535883> **Selamat datang** ${member.user}
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 > <a:notic:721825688260444251> Silahkan ambil role di <#728307645143842889> 
@@ -72,7 +72,7 @@ bot.on("guildMemberAdd", async member => {
 bot.on("guildMemberRemove", async member => {
 
       let BG = db.get(`${member.guild.id}.Config.Welcome.Background`);
-      if (!BG) BG = "https://cdn.discordapp.com/attachments/675700541468311553/723507497356361738/1212432324234.jpg";
+      if (!BG) BG = "https://cdn.discordapp.com/attachments/675700541468311553/723516952525406268/1231231231313213.jpg";
 
       let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
       if (!MSG) MSG = "jangan lupa datang lagi";
@@ -102,7 +102,7 @@ bot.on("guildMemberRemove", async member => {
             .addText(`${MSG}`, 512, 450)
             .toBuffer();
       }
-      let Channelz = bot.channels.get("725610866791284858");
+      let Channelz = bot.channels.get("707783639781343383");
       Channelz.send(`jangan lupa datang lagi ${member.user}`,{
         
     files: [{
