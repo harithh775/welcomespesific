@@ -1,135 +1,113 @@
 const Discord = require("discord.js");
-const music = new Discord.Client({disableEveryone: true});
-music.commands = new Discord.Collection();
-const queue = new Map();
-const timezone = require('moment-timezone')
-const moment = require ('moment')
-const Canvas = require ("canvas")
- 
-Canvas.registerFont(`${process.cwd()}/assets/font/TheNextFont.ttf`, "Tes") 
- 
-music.on("guildMemberAdd", async member => {
-  const channel = member.guild.channels.find(
-    ch => ch.id === "724374962592415806"
-  );
-  if (!channel) return;
-   const canvas = Canvas.createCanvas(1000, 500);
-  const ctx = canvas.getContext("2d");
+const db = require("quick.db");
+const { Canvas } = require("canvas-constructor");
+const { get } = require("node-superfetch");
 
-  console.log(member);
- 
-  const background = await Canvas.loadImage(
-    "https://cdn.discordapp.com/attachments/675700541468311553/697453529060737034/1231243143143434.jpg"
-  );
-       
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-      
- ctx.beginPath();
- ctx.arc(495, 165, 132, 0, 2 * Math.PI);
- ctx.strokeStyle = "#fff"
- ctx.lineWidth = 10;
- ctx.stroke();
 
- 
-  ctx.strokeStyle = "#74037b";
-  ctx.strokeRect(0, 0);
-      
-      
-  ctx.font = "50pt tes"
-  ctx.fillStyle = "#fff"
-  ctx.textAlign = "center"
-  ctx.fillText(`WELCOME`, 500,370)
-      
-  ctx.font = "30pt sans serif"
-  ctx.fillStyle = "#fff"
-  ctx.textAlign = "center"
-  ctx.fillText(`${member.displayName} #${member.user.discriminator}`, 500,410)
+const bot = new Discord.Client();
+const Prefix = ".";
 
- ctx.font = "30pt sans serif"
-  ctx.fillStyle = "#fff"
-  ctx.textAlign = "center"
-  ctx.fillText(`Selamat datang bro`, 500,450)
 
- 
- 
-
-  ctx.beginPath();
-	ctx.arc(495, 165, 130, 0, Math.PI * 2, true);
-	ctx.closePath();
-	ctx.clip();
- 
-  const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
-  ctx.drawImage(avatar, 365, 35, 260, 260);
-    
- 
-  const att = new Discord.Attachment(canvas.toBuffer(), `${member.displayName}.png`);
-  channel.send(`**Selamat datang** ${member.user}
-> <a:notic:721825688260444251> Silahkan ambil role di <#707797778226479106> 
-> <a:notic:721825688260444251> Buat room kamu sendiri di **:heavy_plus_sign: ・Create Room**
-> <a:notic:721825688260444251> Baca <#707788442570063933>
-> <a:notic:721825688260444251> Setting di <#707788479341527091>
-> <a:notic:721825688260444251> Play music di <#707789201076256799>`, att);
-  
-  
+bot.on("ready", () => {
+  console.log("Ready!");
 });
 
-music.on("guildMemberRemove", async member => {
-  const channel = member.guild.channels.find(
-    ch => ch.id === "724374962592415806"
-  );
-  if (!channel) return;
-   const canvas = Canvas.createCanvas(1000, 500);
-  const ctx = canvas.getContext("2d");
 
-  console.log(member);
- 
-  const background = await Canvas.loadImage(
-    "https://cdn.discordapp.com/attachments/675700541468311553/697453529060737034/1231243143143434.jpg"
-  );
-       
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+bot.on("guildMemberAdd", async member => {
+
+      let BG = db.get(`${member.guild.id}.Config.Welcome.Background`);
+      if (!BG) BG = "https://cdn.discordapp.com/attachments/675700541468311553/723507497356361738/1212432324234.jpg";
+
+      let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
+      if (!MSG) MSG = "selamat datang bro";
+
+      var imageUrlRegex = /\?size=2048$/g;
+      var { body: avatar } = await get(
+        member.user.displayAvatarURL.replace(imageUrlRegex, "?size512")
+      );
+      var { body: background } = await get(`${BG}`);
+      async function createCanvas() {
+          return new Canvas(1024, 500)
+            .addImage(background, 0, 0, 1024, 500)
+            .setColor("#ffffff")
+            .addCircle(512, 155, 120)
+            .addCircularImage(avatar, 512, 155, 115)
+            .setTextFont("90px Font2")
+            .setTextAlign("center")
+            .setColor("#ffffff")
+            .addText("WELCOME", 512, 360)
+            .setTextFont("50px Font2")
+            .setTextAlign("center")
+            .setColor("#ffffff")
+            .addText(`${member.user.tag}`, 512, 410)
+            .setTextFont("35px Font2")
+            .setTextAlign("center")
+            .setColor("#ffffff")
+            .addText(`${MSG}`, 512, 449)
+            .toBuffer();
+      }
+      let Channelz = bot.channels.get("725610866791284858");
+      Channelz.send(`selamat datang ${member.user}`,{
+        
+    files: [{
       
- ctx.beginPath();
- ctx.arc(495, 165, 132, 0, 2 * Math.PI);
- ctx.strokeStyle = "#fff"
- ctx.lineWidth = 10;
- ctx.stroke();
-
- 
-  ctx.strokeStyle = "#74037b";
-  ctx.strokeRect(0, 0);
+      attachment: await createCanvas(),
+      name:'Fukuro.png'
       
-      
-  ctx.font = "50pt sans serif"
-  ctx.fillStyle = "#fff"
-  ctx.textAlign = "center"
-  ctx.fillText(`GOODBYE`, 500,370)
-      
-  ctx.font = "30pt sans serif"
-  ctx.fillStyle = "#fff"
-  ctx.textAlign = "center"
-  ctx.fillText(`${member.displayName} #${member.user.discriminator}`, 500,410)
-
- ctx.font = "30pt sans serif"
-  ctx.fillStyle = "#fff"
-  ctx.textAlign = "center"
-  ctx.fillText(`Jangan lupa mampir lagi`, 500,450)
-
- 
- 
-
-  ctx.beginPath();
-	ctx.arc(495, 165, 130, 0, Math.PI * 2, true);
-	ctx.closePath();
-	ctx.clip();
- 
-  const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
-  ctx.drawImage(avatar, 365, 35, 260, 260);
-    
- 
-  const att = new Discord.Attachment(canvas.toBuffer(), `${member.displayName}.png`);
-  channel.send(`**Bye** ${member.user}`, att);
+    }]
+        
+        
+      })
 
 });
-                                                   
-music.login("NzAzMzg5NzU0NjIzOTE4MDkx.XxDyIw.CawSU_bHs0uXy2omxjOkzVASeVQ");
+
+
+bot.on("guildMemberRemove", async member => {
+
+      let BG = db.get(`${member.guild.id}.Config.Welcome.Background`);
+      if (!BG) BG = "https://cdn.discordapp.com/attachments/675700541468311553/723507497356361738/1212432324234.jpg";
+
+      let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
+      if (!MSG) MSG = "jangan lupa datang lagi";
+
+      var imageUrlRegex = /\?size=2048$/g;
+      var { body: avatar } = await get(
+        member.user.displayAvatarURL.replace(imageUrlRegex, "?size512")
+      );
+      var { body: background } = await get(`${BG}`);
+      async function createCanvas() {
+        return new Canvas(1024, 500)
+            .addImage(background, 0, 0, 1024, 500)
+            .setColor("#ffffff")
+            .addCircle(512, 155, 120)
+            .addCircularImage(avatar, 512, 155, 115)
+            .setTextFont("90px Font2")
+            .setTextAlign("center")
+            .setColor("#ffffff")
+            .addText("GOOD BYE", 512, 360)
+            .setTextFont("50px Font2")
+            .setTextAlign("center")
+            .setColor("#ffffff")
+            .addText(`${member.user.tag}`, 512, 410)
+            .setTextFont("35px Font2")
+            .setTextAlign("center")
+            .setColor("#ffffff")
+            .addText(`${MSG}`, 512, 449)
+            .toBuffer();
+      }
+      let Channelz = bot.channels.get("725610866791284858");
+      Channelz.send(`selamat datang ${member.user}`,{
+        
+    files: [{
+      
+      attachment: await createCanvas(),
+      name:'Fukuro.png'
+      
+    }]
+        
+        
+      })
+
+});
+
+bot.login("NzAzMzg5NzU0NjIzOTE4MDkx.XxDyIw.CawSU_bHs0uXy2omxjOkzVASeVQ");
