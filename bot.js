@@ -7,6 +7,7 @@ const { get } = require("node-superfetch");
 const bot = new Discord.Client();
 const Prefix = ".";
 
+Canvas.registerFont(`${process.cwd()}/assets/font/TheNextFont.ttf`, "Tes") 
 
 bot.on("ready", () => {
   console.log("Ready!");
