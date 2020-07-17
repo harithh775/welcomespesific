@@ -6,6 +6,7 @@ const timezone = require('moment-timezone')
 const moment = require ('moment')
 const Canvas = require ("canvas")
  
+Canvas.registerFont(`${process.cwd()}/assets/font/TheNextFont.ttf`, "Tes") 
  
 music.on("guildMemberAdd", async member => {
   const channel = member.guild.channels.find(
@@ -34,7 +35,7 @@ music.on("guildMemberAdd", async member => {
   ctx.strokeRect(0, 0);
       
       
-  ctx.font = "50pt serif"
+  ctx.font = "50pt tes"
   ctx.fillStyle = "#fff"
   ctx.textAlign = "center"
   ctx.fillText(`WELCOME`, 500,370)
