@@ -33,7 +33,7 @@ bot.on("guildMemberAdd", async member => {
             .setColor("#ffffff")
             .addCircle(512, 155, 120)
             .addCircularImage(avatar, 512, 155, 115)
-            .setTextFont("70px Font2")
+            .setTextFont("75px Font2")
             .setTextAlign("center")
             .setColor("#ffffff")
             .addText("WELCOME", 512, 360)
