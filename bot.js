@@ -59,7 +59,7 @@ bot.on("guildMemberAdd", async member => {
     files: [{
       
       attachment: await createCanvas(),
-      name:'Fukuro.png'
+      name:'Welcome.png'
       
     }]
         
@@ -108,7 +108,7 @@ bot.on("guildMemberRemove", async member => {
     files: [{
       
       attachment: await createCanvas(),
-      name:'Fukuro.png'
+      name:'Welcome.png'
       
     }]
         
