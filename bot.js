@@ -48,7 +48,13 @@ bot.on("guildMemberAdd", async member => {
             .toBuffer();
       }
       let Channelz = bot.channels.get("725610866791284858");
-      Channelz.send(`selamat datang ${member.user}`,{
+      Channelz.send(`<a:020:700659081907535883> **Selamat datang** ${member.user}
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+> <a:notic:721825688260444251> Silahkan ambil role di <#728307645143842889> 
+> <a:notic:721825688260444251> Buat room kamu sendiri di **:heavy_plus_sign: ·Create Room**
+> <a:notic:721825688260444251> Baca <#728405558775906405>
+> <a:notic:721825688260444251> Setting di <#728405625859473527>
+> <a:notic:721825688260444251> Play music di <#728405934824751215>`,{
         
     files: [{
       
@@ -85,7 +91,7 @@ bot.on("guildMemberRemove", async member => {
             .setTextFont("75px Font2")
             .setTextAlign("center")
             .setColor("#ffffff")
-            .addText("WELCOME", 512, 361)
+            .addText("GOOD BYE", 512, 361)
             .setTextFont("40px Font2")
             .setTextAlign("center")
             .setColor("#ffffff")
@@ -97,7 +103,7 @@ bot.on("guildMemberRemove", async member => {
             .toBuffer();
       }
       let Channelz = bot.channels.get("725610866791284858");
-      Channelz.send(`selamat datang ${member.user}`,{
+      Channelz.send(`jangan lupa datang lagi ${member.user}`,{
         
     files: [{
       
