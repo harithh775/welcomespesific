@@ -47,14 +47,11 @@ bot.on("guildMemberAdd", async member => {
             .addText(`${MSG}`, 512, 450)
             .toBuffer();
       }
-      let Channelz = bot.channels.get("707783639781343383");
+      let Channelz = member.guild.channels.get("707783639781343383");
       Channelz.send(`<a:020:700659081907535883> **Selamat datang** ${member.user}
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-> <a:notic:721825688260444251> Silahkan ambil role di <#728307645143842889> 
-> <a:notic:721825688260444251> Buat room kamu sendiri di **:heavy_plus_sign: ·Create Room**
-> <a:notic:721825688260444251> Baca <#728405558775906405>
-> <a:notic:721825688260444251> Setting di <#728405625859473527>
-> <a:notic:721825688260444251> Play music di <#728405934824751215>`,{
+> <a:notic:721825688260444251> Play music di <#728405934824751215>
+> <a:notic:721825688260444251> Silahkan ambil role di <#728307645143842889> `,{
         
     files: [{
       
@@ -102,7 +99,7 @@ bot.on("guildMemberRemove", async member => {
             .addText(`${MSG}`, 512, 450)
             .toBuffer();
       }
-      let Channelz = bot.channels.get("707783639781343383");
+      let Channelz = member.guild.channels.get("707783639781343383");
       Channelz.send(`jangan lupa datang lagi ${member.user}`,{
         
     files: [{
