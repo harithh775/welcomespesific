@@ -9,6 +9,7 @@ const Prefix = ".";
 
 Canvas.registerFont(`${process.cwd()}/assets/font/TheNextFont.ttf`, "Font2") 
 Canvas.registerFont(`${process.cwd()}/assets/font/Royalacid_o.ttf`, "Font3") 
+Canvas.registerFont(`${process.cwd()}/assets/font/MonsterMech.ttf`, "Font4") 
 
 bot.on("ready", () => {
   console.log("Ready!");
