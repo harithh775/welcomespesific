@@ -156,7 +156,7 @@ bot.on("guildMemberAdd", async member => {
            .addCircularImage(avatar, 250, 250, 170)
            .toBuffer();
       }
-      let Channelz = member.guild.channels.get("653952637993222224");
+      let Channelz = member.guild.channels.get("733961963771527169");
       Channelz.send(`<a:020:700659081907535883> **Selamat datang** ${member.user}
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`,{
         
@@ -213,7 +213,7 @@ bot.on("guildMemberRemove", async member => {
            .addCircularImage(avatar, 250, 250, 170)
            .toBuffer();
       }
-      let Channelz = member.guild.channels.get("653952637993222224");
+      let Channelz = member.guild.channels.get("733961963771527169");
       Channelz.send(`jangan lupa datang lagi ${member.user}`,{
         
     files: [{
