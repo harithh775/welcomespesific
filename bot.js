@@ -257,11 +257,11 @@ bot.on("guildMemberAdd", async member => {
            .addRect(630, 290, 1024, 120)
            .setTextFont("30pt Font4")
            .setTextAlign("center")
-           .setColor("#000000")
+           .setColor("#ffffff")
            .addText(`#${member.user.discriminator}`, 825, 365)          
            .setTextFont("30pt Font4")
            .setTextAlign("center")
-           .setColor("#000000")
+           .setColor("#ffffff")
            .addText(`${member.displayName}`, 760, 155)
            .setColor("#1A86CD")
            .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
