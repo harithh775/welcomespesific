@@ -149,6 +149,7 @@ bot.on("guildMemberAdd", async member => {
            .setTextFont("30pt Font3")
            .setTextAlign("center")
            .setColor("#ffffff")
+           .addText(`${member.guild.memberCount}`, 125, 480)
            .addText(`${member.displayName}`, 760, 155)
            .setColor("#ADA98D")
            .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
@@ -158,8 +159,14 @@ bot.on("guildMemberAdd", async member => {
            .addCircularImage(avatar, 250, 250, 170)
            .toBuffer();
       }
-      let Channelz = member.guild.channels.get("653952637993222224");
-      Channelz.send(`<a:020:700659081907535883> ${member.user}`,{
+      let Channelz = member.guild.channels.get("734683523704815737");
+      Channelz.send(`**Wilujeng Rawuh Ngeh
+> Take role <#667009218380824594>
+> Kenalken <#666954959593668608>
+> Mading <#681117738629988389>
+> Kamus <#700850650581303366>
+Matur suwun, enjoy ya disini
+**`,{
         
     files: [{
       
@@ -205,6 +212,7 @@ bot.on("guildMemberRemove", async member => {
            .setTextFont("30pt Font3")
            .setTextAlign("center")
            .setColor("#ffffff")
+           .addText(`${member.guild.memberCount}`, 125, 480)
            .addText(`${member.displayName}`, 760, 155)
            .setColor("#ADA98D")
            .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
@@ -214,8 +222,8 @@ bot.on("guildMemberRemove", async member => {
            .addCircularImage(avatar, 250, 250, 170)
            .toBuffer();
       }
-      let Channelz = member.guild.channels.get("653952637993222224");
-      Channelz.send(`jangan lupa datang lagi ${member.user}`,{
+      let Channelz = member.guild.channels.get("734683523704815737");
+      Channelz.send(`${member.user}`,{
         
     files: [{
       
@@ -262,6 +270,7 @@ bot.on("guildMemberAdd", async member => {
            .setTextFont("30pt Font4")
            .setTextAlign("center")
            .setColor("#ffffff")
+           .addText(`${member.guild.memberCount}`, 125, 480)
            .addText(`${member.displayName}`, 760, 155)
            .setColor("#1A86CD")
            .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
@@ -272,7 +281,7 @@ bot.on("guildMemberAdd", async member => {
            .toBuffer();
       }
       let Channelz = member.guild.channels.get("733961400363253771");
-      Channelz.send(`${member.user}`,{
+      Channelz.send(`**\`Welcome\`** ${member.user}`,{
         
     files: [{
       
