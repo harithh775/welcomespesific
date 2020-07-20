@@ -160,7 +160,7 @@ bot.on("guildMemberAdd", async member => {
            .toBuffer();
       }
       let Channelz = member.guild.channels.get("734683523704815737");
-      Channelz.send(`**Wilujeng Rawuh Ngeh ${member.user}
+      Channelz.send(`***Wilujeng Rawuh Ngeh*** **${member.user}
 > Take role <#667009218380824594>
 > Kenalken <#666954959593668608>
 > Mading <#681117738629988389>
