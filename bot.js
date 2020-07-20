@@ -8,6 +8,7 @@ const bot = new Discord.Client();
 const Prefix = ".";
 
 Canvas.registerFont(`${process.cwd()}/assets/font/TheNextFont.ttf`, "Font2") 
+Canvas.registerFont(`${process.cwd()}/assets/font/Royalacid_o.ttf`, "Font3") 
 
 bot.on("ready", () => {
   console.log("Ready!");
@@ -139,11 +140,11 @@ bot.on("guildMemberAdd", async member => {
            .setColor("#1F97CB")
            .addRect(500, 80, 1024, 120)
            .addRect(630, 290, 1024, 120)
-           .setTextFont("30pt Bold")
+           .setTextFont("30pt Font3")
            .setTextAlign("center")
            .setColor("#000000")
            .addText(`#${msg.member.user.discriminator}`, 825, 365)          
-           .setTextFont("30pt Bold")
+           .setTextFont("30pt Font3")
            .setTextAlign("center")
            .setColor("#000000")
            .addText(`${msg.member.displayName}`, 760, 155)
@@ -193,11 +194,11 @@ bot.on("guildMemberRemove", async member => {
            .setColor("#1F97CB")
            .addRect(500, 80, 1024, 120)
            .addRect(630, 290, 1024, 120)
-           .setTextFont("30pt Bold")
+           .setTextFont("30pt Font3")
            .setTextAlign("center")
            .setColor("#000000")
            .addText(`#${msg.member.user.discriminator}`, 825, 365)          
-           .setTextFont("30pt Bold")
+           .setTextFont("30pt Font3")
            .setTextAlign("center")
            .setColor("#000000")
            .addText(`${msg.member.displayName}`, 760, 155)
