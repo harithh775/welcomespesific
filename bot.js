@@ -280,7 +280,7 @@ bot.on("guildMemberAdd", async member => {
            .addCircularImage(avatar, 250, 250, 170)
            .toBuffer();
       }
-      let Channelz = member.guild.channels.get("733961730794979379");
+      let Channelz = member.guild.channels.get("733961673194340415");
       Channelz.send(`**\`Welcome\`** ${member.user}`,{
         
     files: [{
@@ -295,7 +295,7 @@ bot.on("guildMemberAdd", async member => {
 
 });
 
-//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------  eraser
 
 bot.on("guildMemberAdd", async member => {
 
