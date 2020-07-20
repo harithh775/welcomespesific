@@ -8,7 +8,7 @@ const bot = new Discord.Client();
 const Prefix = ".";
 
 Canvas.registerFont(`${process.cwd()}/assets/font/TheNextFont.ttf`, "Font2") 
-Canvas.registerFont(`${process.cwd()}/assets/font/Royalacid_o.ttf`, "Font3") 
+Canvas.registerFont(`${process.cwd()}/assets/font/Malvie.otf`, "Font3") 
 Canvas.registerFont(`${process.cwd()}/assets/font/MonsterMech.ttf`, "Font4") 
 
 bot.on("ready", () => {
@@ -116,27 +116,27 @@ bot.on("guildMemberRemove", async member => {
 
 });
 
-//--------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------- jowonese
 
 bot.on("guildMemberAdd", async member => {
 
       let BG = db.get(`${member.guild.id}.Config.Welcome.Background`);
-      if (!BG) BG = "https://cdn.discordapp.com/attachments/653952637993222224/734654989753909368/Screenshot_20200526-212847_WhatsAppBusiness.jpg";
+      if (!BG) BG = "https://cdn.discordapp.com/attachments/682534052779393026/734674941315776602/MUp6wn.jpg";
 
       let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
       if (!MSG) MSG = "selamat datang bro";
 
-      var imageUrlRegex = /\?size=2048$/g;
+      var imageUrlRegex = /\?size=1048$/g;
       var { body: avatar } = await get(
-        member.user.displayAvatarURL.replace(imageUrlRegex, "?size512")
+        member.user.displayAvatarURL.replace(imageUrlRegex, "?size1048")
       );
       var { body: background } = await get(`${BG}`);
       async function createCanvas() {
           return new Canvas(1024, 500)
            .addImage(background, 0, 0, 1024, 500)
-           .setColor("#1F97CB")
+           .setColor("#ADA98D")
            .addRect(-774, 0, 1024, 500)
-           .setColor("#1F97CB")
+           .setColor("#ADA98D")
            .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
            .setShadowOffsetY(5) // Drop the shadow by 5 pixels.
            .setShadowBlur(10) 
@@ -144,13 +144,13 @@ bot.on("guildMemberAdd", async member => {
            .addRect(630, 290, 1024, 120)
            .setTextFont("30pt Font3")
            .setTextAlign("center")
-           .setColor("#000000")
+           .setColor("#ffffff")
            .addText(`#${member.user.discriminator}`, 825, 365)          
            .setTextFont("30pt Font3")
            .setTextAlign("center")
-           .setColor("#000000")
+           .setColor("#ffffff")
            .addText(`${member.displayName}`, 760, 155)
-           .setColor("#1A86CD")
+           .setColor("#ADA98D")
            .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
            .setShadowOffsetY(5) // Drop the shadow by 5 pixels.
            .setShadowBlur(10) 
@@ -158,7 +158,7 @@ bot.on("guildMemberAdd", async member => {
            .addCircularImage(avatar, 250, 250, 170)
            .toBuffer();
       }
-      let Channelz = member.guild.channels.get("");
+      let Channelz = member.guild.channels.get("653952637993222224");
       Channelz.send(`<a:020:700659081907535883> ${member.user}`,{
         
     files: [{
@@ -177,22 +177,22 @@ bot.on("guildMemberAdd", async member => {
 bot.on("guildMemberRemove", async member => {
 
       let BG = db.get(`${member.guild.id}.Config.Welcome.Background`);
-      if (!BG) BG = "https://cdn.discordapp.com/attachments/653952637993222224/734654989753909368/Screenshot_20200526-212847_WhatsAppBusiness.jpg";
+      if (!BG) BG = "https://cdn.discordapp.com/attachments/682534052779393026/734674941315776602/MUp6wn.jpg";
 
       let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
       if (!MSG) MSG = "jangan lupa datang lagi";
 
-      var imageUrlRegex = /\?size=2048$/g;
+      var imageUrlRegex = /\?size=1048$/g;
       var { body: avatar } = await get(
-        member.user.displayAvatarURL.replace(imageUrlRegex, "?size512")
+        member.user.displayAvatarURL.replace(imageUrlRegex, "?size1048")
       );
       var { body: background } = await get(`${BG}`);
       async function createCanvas() {
         return new Canvas(1024, 500)
            .addImage(background, 0, 0, 1024, 500)
-           .setColor("#1F97CB")
+           .setColor("#ADA98D")
            .addRect(-774, 0, 1024, 500)
-           .setColor("#1F97CB")
+           .setColor("#ADA98D")
            .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
            .setShadowOffsetY(5) // Drop the shadow by 5 pixels.
            .setShadowBlur(10) 
@@ -200,13 +200,13 @@ bot.on("guildMemberRemove", async member => {
            .addRect(630, 290, 1024, 120)
            .setTextFont("30pt Font3")
            .setTextAlign("center")
-           .setColor("#000000")
+           .setColor("#ffffff")
            .addText(`#${member.user.discriminator}`, 825, 365)          
            .setTextFont("30pt Font3")
            .setTextAlign("center")
-           .setColor("#000000")
+           .setColor("#ffffff")
            .addText(`${member.displayName}`, 760, 155)
-           .setColor("#1A86CD")
+           .setColor("#ADA98D")
            .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
            .setShadowOffsetY(5) // Drop the shadow by 5 pixels.
            .setShadowBlur(10) 
@@ -214,7 +214,7 @@ bot.on("guildMemberRemove", async member => {
            .addCircularImage(avatar, 250, 250, 170)
            .toBuffer();
       }
-      let Channelz = member.guild.channels.get("");
+      let Channelz = member.guild.channels.get("653952637993222224");
       Channelz.send(`jangan lupa datang lagi ${member.user}`,{
         
     files: [{
@@ -229,7 +229,7 @@ bot.on("guildMemberRemove", async member => {
 
 });
 
-//-----------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------- scifi
 
 bot.on("guildMemberAdd", async member => {
 
