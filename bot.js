@@ -49,7 +49,7 @@ bot.on("guildMemberAdd", async member => {
             .addText(`${MSG}`, 512, 450)
             .toBuffer();
       }
-      let Channelz = member.guild.channels.get("707783639781343383");
+      let Channelz = member.guild.channels.get("");
       Channelz.send(`<a:020:700659081907535883> **Selamat datang** ${member.user}
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 > <a:notic:721825688260444251> Play music di <#728405934824751215>
@@ -101,7 +101,7 @@ bot.on("guildMemberRemove", async member => {
             .addText(`${MSG}`, 512, 450)
             .toBuffer();
       }
-      let Channelz = member.guild.channels.get("707783639781343383");
+      let Channelz = member.guild.channels.get("");
       Channelz.send(`jangan lupa datang lagi ${member.user}`,{
         
     files: [{
@@ -160,7 +160,7 @@ bot.on("guildMemberAdd", async member => {
            .toBuffer();
       }
       let Channelz = member.guild.channels.get("734683523704815737");
-      Channelz.send(`**Wilujeng Rawuh Ngeh
+      Channelz.send(`**Wilujeng Rawuh Ngeh ${member.user}
 > Take role <#667009218380824594>
 > Kenalken <#666954959593668608>
 > Mading <#681117738629988389>
@@ -282,6 +282,120 @@ bot.on("guildMemberAdd", async member => {
       }
       let Channelz = member.guild.channels.get("733961400363253771");
       Channelz.send(`**\`Welcome\`** ${member.user}`,{
+        
+    files: [{
+      
+      attachment: await createCanvas(),
+      name:'Welcome.png'
+      
+    }]
+        
+        
+      })
+
+});
+
+//-----------------------------------------------------------------------------------------------------------------------------
+
+bot.on("guildMemberAdd", async member => {
+
+      let BG = db.get(`${member.guild.id}.Config.Welcome.Background`);
+      if (!BG) BG = "https://cdn.discordapp.com/attachments/733961963771527169/734672045652181102/122323423423424.jpg";
+
+      let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
+      if (!MSG) MSG = "selamat datang bro";
+
+      var imageUrlRegex = /\?size=1048$/g;
+      var { body: avatar } = await get(
+        member.user.displayAvatarURL.replace(imageUrlRegex, "?size1048")
+      );
+      var { body: background } = await get(`${BG}`);
+      async function createCanvas() {
+          return new Canvas(1024, 500)
+           .addImage(background, 0, 0, 1024, 500)
+           .setColor("#1F97CB")
+           .addRect(-774, 0, 1024, 500)
+           .setColor("#1F97CB")
+           .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
+           .setShadowOffsetY(5) // Drop the shadow by 5 pixels.
+           .setShadowBlur(10) 
+           .addRect(500, 80, 1024, 120)
+           .addRect(630, 290, 1024, 120)
+           .setTextFont("30pt Font4")
+           .setTextAlign("center")
+           .setColor("#ffffff")
+           .addText(`#${member.user.discriminator}`, 825, 365)          
+           .setTextFont("30pt Font4")
+           .setTextAlign("center")
+           .setColor("#ffffff")
+           .addText(`${member.guild.memberCount}`, 125, 480)
+           .addText(`${member.displayName}`, 760, 155)
+           .setColor("#1A86CD")
+           .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
+           .setShadowOffsetY(5) // Drop the shadow by 5 pixels.
+           .setShadowBlur(10) 
+           .addCircle(250, 250, 177)
+           .addCircularImage(avatar, 250, 250, 170)
+           .toBuffer();
+      }
+      let Channelz = member.guild.channels.get("733961400363253771");
+      Channelz.send(`**\`Welcome\`** ${member.user}`,{
+        
+    files: [{
+      
+      attachment: await createCanvas(),
+      name:'Welcome.png'
+      
+    }]
+        
+        
+      })
+
+});
+
+bot.on("guildMemberRemove", async member => {
+
+      let BG = db.get(`${member.guild.id}.Config.Welcome.Background`);
+      if (!BG) BG = "https://cdn.discordapp.com/attachments/733961963771527169/734672045652181102/122323423423424.jpg";
+
+      let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
+      if (!MSG) MSG = "selamat datang bro";
+
+      var imageUrlRegex = /\?size=1048$/g;
+      var { body: avatar } = await get(
+        member.user.displayAvatarURL.replace(imageUrlRegex, "?size1048")
+      );
+      var { body: background } = await get(`${BG}`);
+      async function createCanvas() {
+          return new Canvas(1024, 500)
+           .addImage(background, 0, 0, 1024, 500)
+           .setColor("#1F97CB")
+           .addRect(-774, 0, 1024, 500)
+           .setColor("#1F97CB")
+           .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
+           .setShadowOffsetY(5) // Drop the shadow by 5 pixels.
+           .setShadowBlur(10) 
+           .addRect(500, 80, 1024, 120)
+           .addRect(630, 290, 1024, 120)
+           .setTextFont("30pt Font4")
+           .setTextAlign("center")
+           .setColor("#ffffff")
+           .addText(`#${member.user.discriminator}`, 825, 365)          
+           .setTextFont("30pt Font4")
+           .setTextAlign("center")
+           .setColor("#ffffff")
+           .addText(`${member.guild.memberCount}`, 125, 480)
+           .addText(`${member.displayName}`, 760, 155)
+           .setColor("#1A86CD")
+           .setShadowColor("rgba(22, 22, 22, 1)") // This is a nice colour for a shadow.
+           .setShadowOffsetY(5) // Drop the shadow by 5 pixels.
+           .setShadowBlur(10) 
+           .addCircle(250, 250, 177)
+           .addCircularImage(avatar, 250, 250, 170)
+           .toBuffer();
+      }
+      let Channelz = member.guild.channels.get("733961400363253771");
+      Channelz.send(`**\`Jangan lupa datang lagi\`** ${member.user}`,{
         
     files: [{
       
