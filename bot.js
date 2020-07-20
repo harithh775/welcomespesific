@@ -338,7 +338,7 @@ bot.on("guildMemberRemove", async member => {
            .toBuffer();
       }
       let Channelz = member.guild.channels.get("733961673194340415");
-      Channelz.send(`**\`Welcome\`** ${member.user}`,{
+      Channelz.send(`**\`Jangan lupa datang lagi\`** ${member.user}`,{
         
     files: [{
       
