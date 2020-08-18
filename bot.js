@@ -468,4 +468,4 @@ bot.on("guildMemberRemove", async member => {
 });
 
 
-bot.login("NjY5NjE2Mjk2OTMyOTMzNjUy.XtOYag.zyorp3fYNNv4zsVbKZUqAl3ycbE");
+bot.login("NjY5NjE2Mjk2OTMyOTMzNjUy.Xiiaxg.VNeEMk4YMrTNgtG8ult0jEQ4MVA");
